@@ -18,14 +18,11 @@ export interface Product {
     data: T;
   }
   
-  // brand.ts (Assuming similar structure to Product)
   export interface Brand {
     id: number;
     name: string;
   }
-  
-  // type.ts (Assuming similar structure to Product)
-  export interface Type {
+    export interface Type {
     id: number;
     name: string;
   }

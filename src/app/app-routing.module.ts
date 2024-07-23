@@ -5,6 +5,8 @@ import { TestErrorComponent } from './core/test-error/test-error.component';
 import { NotFoundComponent } from './core/not-found/not-found.component';
 import { ServerErrorComponent } from './core/server-error/server-error.component';
 import { AuthGuard } from './core/guards/auth.guard';
+import { AddProductComponent } from './shop/add-product/add-product.component';
+import { ListProduitComponent } from './shop/list-produit/list-produit.component';
 
 const routes: Routes = [
   {
@@ -19,6 +21,17 @@ const routes: Routes = [
   {
     path: 'not-found', 
     component: NotFoundComponent
+  },
+  {
+    path: 'addproduct', 
+    component: AddProductComponent
+  },
+  {
+    path: 'editproduct/:id', 
+    component: AddProductComponent
+  },  {
+    path: 'allproduct', 
+    component: ListProduitComponent
   },
   {
     path: 'server-error', 

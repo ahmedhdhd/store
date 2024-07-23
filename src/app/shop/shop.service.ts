@@ -5,7 +5,7 @@ import { Product } from '../shared/models/product';
 import { Brand } from '../shared/models/product';
 import { Type } from '../shared/models/product';
 import { ShopParams } from '../shared/models/product';
-import { Observable, map, of } from 'rxjs';
+import { Observable, map, of, tap } from 'rxjs';
 import { isBs4 } from 'ngx-bootstrap/utils/theme-provider';
 
 @Injectable({
@@ -71,31 +71,23 @@ export class ShopService {
   }
   
   getBrands(): Observable<Brand[]> {
-    if (this.brands.length > 0) return of(this.brands);
-  
-    // Hardcoded brands data
-    const hardcodedBrands: Brand[] = [
-      { id: 1, name: 'Brand A' },
-      { id: 2, name: 'Brand B' },
-      { id: 3, name: 'Brand C' }
-    ];
-  
-    this.brands = hardcodedBrands;
-    return of(this.brands);
+    if (this.brands.length > 0) {
+      return of(this.brands);
+    }
+
+    return this.http.get<Brand[]>(`${this.baseUrl}TypeFamille/Famille`).pipe(
+      tap((brands) => (this.brands = brands))
+    );
   }
-  
+
   getTypes(): Observable<Type[]> {
-    if (this.types.length > 0) return of(this.types);
-  
-    // Hardcoded types data
-    const hardcodedTypes: Type[] = [
-      { id: 1, name: 'Type A' },
-      { id: 2, name: 'Type B' },
-      { id: 3, name: 'Type C' }
-    ];
-  
-    this.types = hardcodedTypes;
-    return of(this.types);
+    if (this.types.length > 0) {
+      return of(this.types);
+    }
+
+    return this.http.get<Type[]>(`${this.baseUrl}TypeFamille/types`).pipe(
+      tap((types) => (this.types = types))
+    );
   }
 
   addProduct(produit : Product): Observable<any> {
@@ -106,4 +98,9 @@ return this.http.post(`${this.baseUrl}Produit` , produit) ;
     return this.http.put(`${this.baseUrl}Produit/${id}` , produit) ;
 
   }
+  deleteproduct(id : number){
+    return this.http.delete(`${this.baseUrl}Produit/${id}`)
+  }
+
+ 
 }

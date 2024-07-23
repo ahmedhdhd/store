@@ -9,6 +9,7 @@ import { ShopRoutingModule } from './shop-routing.module';
 import { AddProductComponent } from './add-product/add-product.component';
 
 import { FormsModule } from '@angular/forms';
+import { ListProduitComponent } from './list-produit/list-produit.component';
 
 
 @NgModule({
@@ -16,7 +17,8 @@ import { FormsModule } from '@angular/forms';
     ShopComponent,
     ProductItemComponent,
     ProductDetailsComponent,
-    AddProductComponent
+    AddProductComponent,
+    ListProduitComponent
   ],
   imports: [
     CommonModule,
