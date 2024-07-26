@@ -7,6 +7,8 @@ import { ServerErrorComponent } from './core/server-error/server-error.component
 import { AuthGuard } from './core/guards/auth.guard';
 import { AddProductComponent } from './shop/add-product/add-product.component';
 import { ListProduitComponent } from './shop/list-produit/list-produit.component';
+import { ShopComponent } from './shop/shop.component';
+import { BasketComponent } from './basket/basket.component';
 
 const routes: Routes = [
   {
@@ -36,6 +38,12 @@ const routes: Routes = [
   {
     path: 'server-error', 
     component: ServerErrorComponent
+  },  {
+    path: 'shop', 
+    component: ShopComponent
+  },{
+    path: 'basket', 
+    component: BasketComponent
   },
   {
     path: 'shop', 

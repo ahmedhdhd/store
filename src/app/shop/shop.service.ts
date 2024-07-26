@@ -50,7 +50,9 @@ export class ShopService {
       })
     );
   }
-  
+  getallproduct(serch : string): Observable<any[]> {
+    return this.http.get<any[]>(`${this.baseUrl}Produit/all/?serch=${serch}`);
+  }
   setShopParams(params: ShopParams) {
     this.shopParams = params;
   }

@@ -9,17 +9,15 @@ import { ShopService } from '../shop.service';
 })
 export class ListProduitComponent implements OnInit {
   products: Product[] = [];
-  totalCount = 0;
-
+  search=""
   constructor(private shopService: ShopService) {}
   ngOnInit(): void {
 this.getProducts()  }
 
   getProducts() {
-    this.shopService.getProducts().subscribe({
+    this.shopService.getallproduct(this.search).subscribe({
       next: response => {
-        this.products = response.data;
-        this.totalCount = response.count;
+        this.products = response;
       },
       error: error => console.log(error)
     })

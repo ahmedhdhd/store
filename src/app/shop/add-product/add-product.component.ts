@@ -76,14 +76,14 @@ idn : any
   }
   getBrands() {
     this.productService.getBrands().subscribe({
-      next: response => this.brands = [{id: 0, name: "All"}, ...response],
+      next: response => this.brands = [{id: 0, name: "Tous"}, ...response],
       error: error => console.log(error)
     })
   }
 
   getTypes() {
     this.productService.getTypes().subscribe({
-      next: response => this.types = [{id: 0, name: "All"}, ...response],
+      next: response => this.types = [{id: 0, name: "Tous"}, ...response],
       error: error => console.log(error)
     })
   }

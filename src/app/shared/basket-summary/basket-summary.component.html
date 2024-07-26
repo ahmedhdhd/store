@@ -34,10 +34,10 @@
                 <td class="align-middle">
                     <div class="d-flex align-items-center" 
                         [class.justify-content-center]="!isBasket" >
-                        <i *ngIf="isBasket" class="fa fa-minus-circle text-warning me-2" 
+                        <i *ngIf="isBasket" class="fa fa-minus-circle text-warning me-2"(click)="removeBasketItem(item.id, 1)" 
                             style="cursor: pointer; font-size: 2em;"
-                            (click)="removeBasketItem(item.id, 1)"
-                        ></i>
+                        ></i>                            <!--  -->
+
                         <strong style="font-size: 1em;">{{item.quantity}}</strong>
                         <i *ngIf="isBasket" class="fa fa-plus-circle text-warning mx-2" 
                             style="cursor: pointer; font-size: 2em;"
@@ -48,10 +48,10 @@
                 <td class="align-middle"><strong>{{item.price * item.quantity | currency}}</strong></td>
                 <td class="align-middle" *ngIf="isBasket">
                     <a class="text-danger">
-                        <i
-                            (click)="removeBasketItem(item.id, item.quantity)"
+                        <i (click)="removeBasketItem(item.id, item.quantity)"
                             class="fa fa-trash" 
-                            style="font-size: 2em; cursor: pointer;"></i>
+                            style="font-size: 2em; cursor: pointer;"></i>                            <!--  -->
+
                     </a>
                 </td>
             </tr>
